@@ -25,6 +25,15 @@ const countryData = [
   { name: 'Argentina', code: 'ar', colors: ['#74ACDF', '#FFFFFF', '#F6B40E'] }
 ];
 
+// Shuffle helper
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 // Map codes to more countries to reach 100+
 const extraCodes = ['ca', 'es', 'pt', 'it', 'gr', 'ph', 'id', 'th', 'vn', 'tr', 'ae', 'pl', 'ua', 'nl', 'be', 'se', 'no', 'dk', 'fi', 'ch', 'at', 'ie', 'au', 'nz', 'pe', 'cl', 'ec', 've', 'pk', 'my', 'kr', 'sg', 'tw', 'ru', 'pk', 'il', 'sa', 'qa', 'kw', 'lb', 'jo', 'iq', 'dz', 'tn', 'sn', 'tz', 'mg', 'cm', 'ci', 'tg', 'bj', 'ne', 'td', 'mz', 'ao', 'dj', 'gm', 'gn', 'bf', 'kh', 'mm', 'la', 'np', 'mn', 'bd', 'lt', 'lv', 'ee', 'sk', 'cz', 'hu', 'ro', 'bg', 'hr', 'si'];
 extraCodes.forEach(code => {
@@ -32,6 +41,9 @@ extraCodes.forEach(code => {
     countryData.push({ name: code.toUpperCase(), code: code, colors: ['#C9A84C', '#FFFFFF'] });
   }
 });
+
+// Final shuffle before use
+shuffleArray(countryData);
 
 function createParticleBurst(x, y, colors, code = null) {
   const container = document.createElement('div');
@@ -112,7 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
       flagWrapper.style.cursor = 'pointer';
       flagWrapper.style.display = 'inline-block';
       flagWrapper.style.opacity = '0';
-      flagWrapper.style.transform = `translateY(50px) scale(0.5) rotate(${(Math.random() - 0.5) * 60}deg)`;
+      const rot = (Math.random() - 0.5) * 40;
+      flagWrapper.style.setProperty('--rot', `${rot}deg`);
+      flagWrapper.style.transform = `translateY(50px) scale(0.5) rotate(${rot}deg)`;
       flagWrapper.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
       
       const flagImg = document.createElement('img');
@@ -127,20 +141,28 @@ document.addEventListener('DOMContentLoaded', () => {
       
       flagWrapper.addEventListener('click', (e) => {
         createParticleBurst(e.clientX, e.clientY, country.colors, country.code);
-        if (window.Haptics) Haptics.light();
+        if (window.Haptics) Haptics.heavy(); // Amped haptics for flag clicks
       });
 
       container.appendChild(flagWrapper);
       
       setTimeout(() => {
         flagWrapper.style.opacity = '1';
-        flagWrapper.style.transform = `translateY(0) scale(1) rotate(${(Math.random() - 0.5) * 40}deg)`;
+        flagWrapper.style.transform = `translateY(0) scale(1) rotate(${rot}deg)`;
+        
+        // Add idle motion after landing
+        setTimeout(() => {
+          flagWrapper.classList.add('idle-float');
+        }, 600);
       }, 50);
     }
     
+    // Add light haptic for each batch toss
+    if (window.Haptics && batchIndex % 2 === 0) Haptics.light();
+
     batchIndex++;
     if (batchIndex * batchSize < countryData.length) {
-      setTimeout(tossNextBatch, 50);
+      setTimeout(tossNextBatch, 60);
     }
   }
 
@@ -149,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (e) => {
     if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A' && !e.target.closest('.flag-emoji') && !e.target.closest('.competition-card')) {
       createParticleBurst(e.clientX, e.clientY, ['#C9A84C', '#FFFFFF']);
+      if (window.Haptics) Haptics.medium(); // Add feedback for empty space clicks
     }
   });
 });

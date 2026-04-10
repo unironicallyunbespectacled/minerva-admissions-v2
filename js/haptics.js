@@ -55,19 +55,23 @@ const Haptics = {
   },
 
   light() {
-    this.vibrate(10);
+    this.vibrate(20);
   },
 
   medium() {
-    this.vibrate([20, 10, 20]);
+    this.vibrate([30, 20, 30]);
   },
 
   heavy() {
-    this.vibrate([40, 20, 40, 20, 40]);
+    this.vibrate([60, 30, 60, 20, 60]);
   },
 
   success() {
-    this.vibrate([50, 30, 50]);
+    this.vibrate([100, 50, 100, 50, 200]);
+  },
+
+  magic() {
+    this.vibrate([10, 40, 10, 40, 10, 80]);
   }
 };
 
