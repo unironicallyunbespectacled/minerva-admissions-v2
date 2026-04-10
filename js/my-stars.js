@@ -1,4 +1,5 @@
 // js/my-stars.js
+// Phase 7: My Stars Questionnaire (6-stage Socratic reflection)
 
 document.addEventListener('DOMContentLoaded', () => {
   const stages = document.querySelectorAll('.star-stage');
