@@ -1,0 +1,74 @@
+/* css/device-themes.css */
+
+/* iPhone Pro */
+html.device-iphone.iphone-pro {
+  --primary-gold: #D4AF37; /* richer gold */
+}
+html.device-iphone.iphone-pro .glass, 
+html.device-iphone.iphone-pro .chromatic-glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+html.device-iphone.iphone-pro .navbar {
+  padding-top: max(env(safe-area-inset-top), 16px);
+}
+html.device-iphone.iphone-pro .container {
+  padding: 0 16px; /* more compact */
+}
+
+/* iPhone Base */
+html.device-iphone.iphone-base {
+  --primary-gold: #C9A84C;
+}
+html.device-iphone.iphone-base .glass, 
+html.device-iphone.iphone-base .chromatic-glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* iPad */
+html.device-ipad .container {
+  max-width: 900px;
+}
+html.device-ipad .grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Samsung / Android */
+html.device-samsung {
+  --bg-dark: #0A0A14; /* cooler blue-gray */
+  --primary-gold: #B39B42;
+}
+html.device-android .glass, 
+html.device-android .chromatic-glass {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* MacBook */
+html.device-macbook .container {
+  max-width: 1000px;
+}
+html.device-macbook .competition-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 0 0 1px rgba(201, 168, 76, 0.6),
+    8px 8px 40px rgba(201, 168, 76, 0.2),
+    -8px -8px 40px rgba(45, 53, 97, 0.2);
+}
+
+/* iMac */
+html.device-imac .container {
+  max-width: 1400px;
+}
+
+/* Windows */
+html.os-windows {
+  /* subtly different rendering or colors */
+  --bg-dark: #0C0C18;
+}
+html.os-windows * {
+  /* explicit override for sub-pixel antialiasing on windows */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
