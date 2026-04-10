@@ -118,6 +118,13 @@ class FreddyCursor {
     this.freddyPos.x += this.freddyVel.x;
     this.freddyPos.y += this.freddyVel.y;
     
+    // Window Bounds Check (Keep Freddy on screen)
+    const padding = 40;
+    if (this.freddyPos.x < 0) this.freddyPos.x = 0;
+    if (this.freddyPos.x > window.innerWidth - padding) this.freddyPos.x = window.innerWidth - padding;
+    if (this.freddyPos.y < 0) this.freddyPos.y = 0;
+    if (this.freddyPos.y > window.innerHeight - padding) this.freddyPos.y = window.innerHeight - padding;
+
     // Calculate Freddy's physical speed
     const freddySpeed = Math.sqrt(this.freddyVel.x ** 2 + this.freddyVel.y ** 2);
     
@@ -152,7 +159,7 @@ class FreddyCursor {
       } else if (timeSinceLastMove > 10000) { // 10 secs
         if (this.state !== 'rizz' && this.state !== 'lounging') {
           this.setState('lounging');
-          if (window.AudioScape) AudioScape.thud();
+          if (typeof AudioScape !== 'undefined' && AudioScape.enabled) AudioScape.thud();
         }
       }
     }

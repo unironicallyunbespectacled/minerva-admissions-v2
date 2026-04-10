@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Vibe Check — Minerva University</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/glassmorphism.css">
     <link rel="stylesheet" href="../css/device-themes.css">
+    <link rel="preload" href="../assets/svg/freddy-sitting.svg" as="image">
+    <link rel="preload" href="../assets/svg/freddy-running.svg" as="image">
     <style>
         .grid {
             display: grid;
@@ -28,13 +30,13 @@
         </a>
     </nav>
 
-    <main class="container">
+    <main class="container" style="padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom);">
         <section class="text-center" style="margin-top: 40px;">
             <h1>Vibe Check</h1>
-            <p class="subtitle" style="margin: 0 auto 32px auto;">Explore 50+ international competitions. See what your future classmates are building, solving, and winning.</p>
+            <p class="subtitle" style="margin: 0 auto 32px auto;">Explore 130+ elite and shadow competitions. Recognition for your blood, sweat, and tears.</p>
             
             <div class="search-container form-group">
-                <input type="text" id="vibe-search" placeholder="Search by name or country (e.g., 'IMO', 'Nigeria')...">
+                <input type="text" id="vibe-search" placeholder="Search by name or country (e.g., 'Riversman', 'Nigeria')...">
             </div>
         </section>
 
@@ -49,10 +51,6 @@
     <script src="../js/haptics.js"></script>
     <script src="../js/device-detect.js"></script>
     <script src="../js/flag-animation.js"></script>
-    <script src="../js/vibe-check.js"></script>
-    <script src="../js/freddy.js"></script>
-</body>
-</html>tion.js"></script>
     <script src="../js/vibe-check.js"></script>
     <script src="../js/freddy.js"></script>
 </body>

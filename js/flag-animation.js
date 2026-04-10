@@ -63,9 +63,16 @@ function createParticleBurst(x, y, colors, code = null) {
   document.body.appendChild(container);
 
   // Flag flies up
-  if (code && typeof code === 'string' && code.length === 2) {
+  if (code && typeof code === 'string' && code !== 'none') {
     const el = document.createElement('img');
-    el.src = `https://flagcdn.com/w80/${code.toLowerCase()}.png`;
+    // If it's a 2-letter country code, use flagcdn
+    if (code.length === 2) {
+        el.src = `https://flagcdn.com/w80/${code.toLowerCase()}.png`;
+    } else {
+        // Fallback or custom logic for non-country codes could go here
+        // For now, if it's not 2 letters, we don't show an image to avoid broken icons
+        return; 
+    }
     el.style.position = 'absolute';
     el.style.left = `${x}px`;
     el.style.top = `${y}px`;
