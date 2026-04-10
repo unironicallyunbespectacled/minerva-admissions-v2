@@ -1,14 +1,75 @@
 // js/vibe-check.js
 
 const competitions = [
+  // Academics & Science
   { name: "International Mathematical Olympiad (IMO)", country: "International" },
   { name: "International Physics Olympiad (IPhO)", country: "International" },
-  { name: "Enact National Business Competition", country: "Nigeria" },
+  { name: "International Chemistry Olympiad (IChO)", country: "International" },
+  { name: "International Biology Olympiad (IBO)", country: "International" },
+  { name: "International Informatics Olympiad (IOI)", country: "International" },
+  { name: "Science Bowl International", country: "International" },
   { name: "Intel International Science & Engineering Fair (ISEF)", country: "USA" },
+  { name: "FIRST Robotics International", country: "International" },
+  { name: "National Science Challenge", country: "Kenya" },
+  { name: "STEM Innovation Fair", country: "Nigeria" },
+  { name: "Future Scientists Olympiad", country: "India" },
+  { name: "EuroScience Olympiad", country: "France" },
+  { name: "Asia-Pacific Informatics Olympiad", country: "Japan" },
+  { name: "Iberoamerican Math Olympiad", country: "Brazil" },
+  { name: "Pan-African Math Olympiad", country: "South Africa" },
+  
+  // Business & Entrepreneurship
+  { name: "Enactus World Cup", country: "International" },
   { name: "Global Student Entrepreneur Awards (GSEA)", country: "International" },
+  { name: "UNCTAD Young Entrepreneurs", country: "International" },
+  { name: "Enact National Business Competition", country: "Nigeria" },
+  { name: "Global Entrepreneurship Summit", country: "International" },
+  { name: "Diamond Challenge", country: "USA" },
+  { name: "Hult Prize", country: "International" },
+  { name: "DECA International Career Development", country: "USA" },
+  { name: "Conrad Spirit of Innovation", country: "USA" },
+  { name: "SAGE Global", country: "International" },
+  { name: "Technovation Challenge", country: "International" },
+  { name: "Invento Business Pitch", country: "Colombia" },
+  { name: "Startup Weekend", country: "International" },
+  { name: "TiE Young Entrepreneurs", country: "India" },
+  { name: "Youth Business Fair", country: "Ghana" },
+  
+  // Arts & Humanities
+  { name: "Tribeca Film Festival Emerging Artists", country: "USA" },
+  { name: "Young Playwrights Festival", country: "International" },
+  { name: "International Young Readers' Prize", country: "International" },
+  { name: "Global Youth Forum", country: "International" },
+  { name: "World Scholar's Cup", country: "International" },
+  { name: "Scholastic Art & Writing", country: "USA" },
+  { name: "John Locke Institute Essay", country: "UK" },
+  { name: "Commonwealth Essay Competition", country: "UK" },
+  { name: "Foyle Young Poets", country: "UK" },
+  { name: "Sony World Photography Youth", country: "International" },
+  { name: "Poetry Out Loud", country: "USA" },
+  
+  // Social Impact
+  { name: "Bridge Alliance Social Impact", country: "International" },
+  { name: "Global Goals Studentpreneur", country: "International" },
+  { name: "Youth for the UN SDGs", country: "International" },
+  { name: "Ashoka Youth Venture", country: "International" },
+  { name: "Peace First Challenge", country: "International" },
+  { name: "Earth Prize", country: "International" },
+  { name: "ClimateScience Olympiad", country: "International" },
+  { name: "Stockholm Junior Water Prize", country: "Sweden" },
+  { name: "Prudential Spirit of Community", country: "USA" },
+  { name: "Global Social Leaders", country: "UK" },
+  
+  // Sports & Athletics
   { name: "Youth Olympic Games", country: "International" },
-  { name: "World Model UN", country: "International" }
-  // Will expand to 50+ in Phase 8
+  { name: "IAAF World Junior Championships", country: "International" },
+  { name: "International Debate Association", country: "International" },
+  { name: "World Model UN", country: "International" },
+  { name: "Harvard MUN", country: "USA" },
+  { name: "Berkeley MUN", country: "USA" },
+  { name: "THIMUN", country: "Netherlands" },
+  { name: "World Schools Debating", country: "International" },
+  { name: "Asian Schools Debating", country: "Thailand" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
