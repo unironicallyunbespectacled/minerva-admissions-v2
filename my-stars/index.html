@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Stars! — Minerva University</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/glassmorphism.css">
+</head>
+<body>
+    <nav class="navbar glass-nav">
+        <a href="../index.html" class="nav-left">
+            <svg class="logo-enso" viewBox="0 0 100 100">
+                <path d="M 50 10 A 40 40 0 1 1 10 50 A 40 40 0 0 1 45 12" />
+            </svg>
+            <span class="nav-title">Minerva University</span>
+        </a>
+    </nav>
+
+    <main class="container" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        <div class="chromatic-glass form-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span id="step-indicator" class="small-caps">Stage 1 of 6</span>
+                <span id="draft-indicator" class="small-caps" style="opacity: 0; transition: opacity 0.3s; color: var(--primary-gold);">Draft saved</span>
+            </div>
+            
+            <div class="progress-container mb-4">
+                <div id="stars-progress" class="progress-bar" style="background-color: #FF9F43;"></div>
+            </div>
+
+            <form id="stars-form">
+                <!-- Stage 1 -->
+                <div class="star-stage">
+                    <h2 style="color: #FF9F43;">Discovery</h2>
+                    <div class="form-group">
+                        <label>What's something you do regularly that people in your life rely on you for?</label>
+                        <textarea name="stage1" placeholder="Don't overthink it..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Stage 2 -->
+                <div class="star-stage" style="display: none;">
+                    <h2 style="color: #EE5A6F;">Depth</h2>
+                    <div class="form-group">
+                        <label>What would happen if you stopped doing this?</label>
+                        <textarea name="stage2" placeholder="Be honest about the impact..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="star-stage" style="display: none;">
+                    <h2 style="color: #2E86AB;">Context</h2>
+                    <div class="form-group">
+                        <label>What's your country or region, and what resources are available to you?</label>
+                        <textarea name="stage3" placeholder="Tell us where you are starting from..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Stage 4 -->
+                <div class="star-stage" style="display: none;">
+                    <h2 style="color: #A23B72;">Signal</h2>
+                    <div class="form-group">
+                        <label>Here's what your answers reveal. Choose 4-6 qualities that describe what you just shared.</label>
+                        <textarea name="stage4" placeholder="List qualities here..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Stage 5 -->
+                <div class="star-stage" style="display: none;">
+                    <h2 style="color: #F18F01;">Authenticity</h2>
+                    <div class="form-group">
+                        <label>Does this sound like how you would actually speak?</label>
+                        <textarea name="stage5" placeholder="Refine your voice..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Stage 6 -->
+                <div class="star-stage" style="display: none;">
+                    <h2 style="color: #C9A84C;">Export</h2>
+                    <p class="text-secondary mb-4">Your complete articulation is ready.</p>
+                    <div class="form-group">
+                        <label>Final Polish</label>
+                        <textarea name="stage6" placeholder="Final thoughts..."></textarea>
+                    </div>
+                </div>
+            </form>
+
+            <div class="btn-group" style="margin-top: 32px; justify-content: space-between;">
+                <button type="button" id="prev-btn" class="btn btn-secondary">Previous</button>
+                <button type="button" id="next-btn" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/haptics.js"></script>
+    <script src="../js/my-stars.js"></script>
+</body>
+</html>

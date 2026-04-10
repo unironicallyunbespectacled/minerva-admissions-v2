@@ -1,44 +1,21 @@
-/**
- * app.js — [App Name]
- *
- * Entry point for all application logic.
- * Keep this file organized by feature area as the app grows.
- * See SCRATCHPAD.md for current milestone and DECISIONS.md for
- * architectural choices made so far.
- */
+// js/app.js
 
-// ============================================================
-// State
-// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  // General app logic
+  
+  // Rotating affirmations for Home Page
+  const affirmations = [
+    "The most interesting thing about you is not on your résumé.",
+    "You don't have to be perfect to belong here.",
+    "We're looking for what you've *done*, not what you've *won*.",
+    "Your voice matters. We want to hear it.",
+    "Minerva is for people who ask questions.",
+    "You're enough. And we mean that."
+  ];
 
-const state = {
-  // Add your application state here
-};
-
-// ============================================================
-// Initialization
-// ============================================================
-
-function init() {
-  // Runs once on page load.
-  // Set up event listeners, load initial data, render first view.
-  console.log('[App] initialized');
-}
-
-// ============================================================
-// Event handlers — add yours below
-// ============================================================
-
-// ============================================================
-// Rendering — add render functions below
-// ============================================================
-
-// ============================================================
-// Utilities — add shared helpers below
-// ============================================================
-
-// ============================================================
-// Boot
-// ============================================================
-
-document.addEventListener('DOMContentLoaded', init);
+  const affirmationCard = document.querySelector('.affirmation-card');
+  if (affirmationCard) {
+    const randomQuote = affirmations[Math.floor(Math.random() * affirmations.length)];
+    affirmationCard.textContent = `"${randomQuote}"`;
+  }
+});

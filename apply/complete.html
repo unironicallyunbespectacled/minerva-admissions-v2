@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Complete — Minerva University</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/glassmorphism.css">
+    <style>
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary-gold);
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(720deg); }
+        }
+    </style>
+</head>
+<body style="overflow: hidden;">
+    <!-- Confetti Container -->
+    <div id="confetti-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></div>
+
+    <nav class="navbar glass-nav" style="z-index: 100;">
+        <a href="../index.html" class="nav-left">
+            <svg class="logo-enso" viewBox="0 0 100 100">
+                <path d="M 50 10 A 40 40 0 1 1 10 50 A 40 40 0 0 1 45 12" />
+            </svg>
+            <span class="nav-title">Minerva University</span>
+        </a>
+    </nav>
+
+    <main class="container" style="flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 10;">
+        <div class="chromatic-glass form-container text-center">
+            <h1 style="color: var(--primary-gold);">Everything Is In</h1>
+            <p class="subtitle" style="margin-left: auto; margin-right: auto; margin-bottom: 40px;">Thank you for sharing your story with us. We'll be in touch soon.</p>
+            <div style="font-size: 3rem; margin-bottom: 32px;">🎉</div>
+            <a href="../index.html" class="btn btn-primary">Return Home</a>
+        </div>
+    </main>
+
+    <script src="../js/haptics.js"></script>
+    <script>
+        // Simple confetti effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#C9A84C', '#FF9F43', '#EE5A6F', '#2E86AB', '#A23B72', '#FFFFFF'];
+            
+            for(let i=0; i<100; i++) {
+                const conf = document.createElement('div');
+                conf.classList.add('confetti');
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                conf.style.animationDelay = (Math.random() * 5) + 's';
+                container.appendChild(conf);
+            }
+            
+            if (window.Haptics) {
+                setTimeout(() => Haptics.success(), 500);
+            }
+            
+            // Clear draft
+            localStorage.removeItem('minerva_apply_draft');
+        });
+    </script>
+</body>
+</html>

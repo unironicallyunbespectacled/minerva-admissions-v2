@@ -3,38 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your App Name] — Minerva University</title>
+    <title>Minerva University Admissions</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/glassmorphism.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>[Your App Name]</h1>
-            <p class="subtitle">[One-sentence purpose]</p>
+    <nav class="navbar glass-nav">
+        <div class="nav-left">
+            <svg class="logo-enso" viewBox="0 0 100 100">
+                <!-- Open circle hand-drawn style -->
+                <path d="M 50 10 A 40 40 0 1 1 10 50 A 40 40 0 0 1 45 12" />
+            </svg>
+            <span class="nav-title">Minerva University</span>
         </div>
-    </header>
+        <button class="mood-toggle">Curious</button>
+    </nav>
 
     <main class="container">
-        <!-- Students will build their app here -->
-        <section id="app-placeholder">
-            <h2>Ready to start?</h2>
-            <p>Tell Gemini what your first milestone is, or ask: "What should we build first for [App Name]?"</p>
+        <section class="hero text-center mt-4 mb-4">
+            <h1>Build Your Own Minerva Story</h1>
+            <p class="subtitle" style="margin-left: auto; margin-right: auto;">There is no single Minerva student. You're here because you solved a real problem. Let's hear about it.</p>
+            <div class="btn-group" style="justify-content: center;">
+                <a href="apply/index.html" class="btn btn-primary">Start My Application</a>
+                <a href="my-stars/index.html" class="btn btn-secondary">My Stars!</a>
+                <a href="vibe-check/index.html" class="btn btn-secondary">Vibe Check</a>
+            </div>
+        </section>
+
+        <section class="flags-section text-center">
+            <h2>Minerva Is Everywhere</h2>
+            <p class="text-secondary">Students from 100+ countries</p>
+            <div id="flag-container" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 32px;">
+                <!-- Flags will be injected here via JS in Phase 4 -->
+                <span class="flag-emoji" style="font-size: 2rem;">🇳🇬</span>
+                <span class="flag-emoji" style="font-size: 2rem;">🇯🇵</span>
+                <span class="flag-emoji" style="font-size: 2rem;">🇺🇸</span>
+                <span class="flag-emoji" style="font-size: 2rem;">🇬🇧</span>
+                <span class="flag-emoji" style="font-size: 2rem;">🇮🇳</span>
+            </div>
+        </section>
+
+        <section class="affirmations">
+            <div class="chromatic-glass affirmation-card">
+                "The most interesting thing about you is not on your résumé."
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="container footer-content">
-            <div class="copyright">
-                &copy; 2026 Minerva University Student Project
-            </div>
-            <!-- MANDATORY AI DISCLOSURE (per Minerva Guardrails) -->
+            <div class="contact">Questions? Reach out to Ben Wilkoff</div>
+            <div class="copyright">&copy; 2026 Minerva University Admissions</div>
             <div class="ai-disclosure">
-                <span class="badge">AI-Assisted</span>
-                Developed with Gemini CLI & Minerva AI Framework
+                <span class="badge" style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px;">AI-Assisted</span>
             </div>
         </div>
     </footer>
 
+    <script src="js/haptics.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Check — Minerva University</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/glassmorphism.css">
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar glass-nav">
+        <a href="../index.html" class="nav-left">
+            <svg class="logo-enso" viewBox="0 0 100 100">
+                <path d="M 50 10 A 40 40 0 1 1 10 50 A 40 40 0 0 1 45 12" />
+            </svg>
+            <span class="nav-title">Minerva University</span>
+        </a>
+    </nav>
+
+    <main class="container">
+        <section class="text-center" style="margin-top: 40px;">
+            <h1>Vibe Check</h1>
+            <p class="subtitle" style="margin: 0 auto 32px auto;">Explore 50+ international competitions. See what your future classmates are building, solving, and winning.</p>
+            
+            <div class="search-container form-group">
+                <input type="text" id="vibe-search" placeholder="Search by name or country (e.g., 'IMO', 'Nigeria')...">
+            </div>
+        </section>
+
+        <section>
+            <div id="competitions-list" class="grid">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/haptics.js"></script>
+    <script src="../js/vibe-check.js"></script>
+</body>
+</html>

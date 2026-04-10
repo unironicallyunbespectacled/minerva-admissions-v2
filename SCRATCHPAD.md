@@ -5,18 +5,17 @@
 > **Keep this block short and current.** Update it at the end of every session.
 > This is the first thing Gemini reads — make it worth reading.
 
-**Status**: NOT STARTED
-**Active milestone**: M1 — [Milestone name]
-**Last session**: [YYYY-MM-DD]
+**Status**: IN PROGRESS
+**Active milestone**: Phase 1 - Critical Fixes (Complete)
+**Last session**: 2026-04-10
 
 **Next actions**:
-- [ ] [The first concrete thing to do next session]
-- [ ] [The second thing]
-- [ ] [The third thing, if known]
+- [ ] Phase 2 - Realistic Freddy (spring physics and SVG poses)
+- [ ] Phase 3 - Glassmorphism + Chromatic Glass enhancements
+- [ ] Phase 4 - 100+ Country Flags Animated
 
 **Open questions**:
-- [Any unresolved technical or design decisions]
-- [Any user-facing questions that need answering before proceeding]
+- None right now.
 
 ---
 

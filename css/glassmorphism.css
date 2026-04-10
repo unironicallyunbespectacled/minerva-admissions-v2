@@ -1,0 +1,95 @@
+/* css/glassmorphism.css */
+
+/* Basic Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+/* Nav Glass (more opaque) */
+.glass-nav {
+  background: rgba(14, 14, 28, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Chromatic Glass (enhanced frosted glass with shimmer) */
+.chromatic-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) hue-rotate(2deg);
+  -webkit-backdrop-filter: blur(12px) hue-rotate(2deg);
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, 0.25),      /* gold rim */
+    4px 4px 24px rgba(201, 168, 76, 0.08),     /* gold glow */
+    -4px -4px 24px rgba(45, 53, 97, 0.08),     /* blue glow */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);  /* inner light */
+  overflow: hidden; /* To contain the shimmer pseudoelement if used, though specs don't strictly define structure */
+}
+
+/* Shimmer animation (rotating prismatic gradient) */
+.chromatic-glass::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.05) 90deg,
+    rgba(201, 168, 76, 0.1) 180deg,
+    transparent 270deg
+  );
+  transform-origin: 0 0;
+  animation: chromaticShimmer 10s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.chromatic-glass > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes chromaticShimmer {
+  0% { transform: rotate(0deg) translateX(-50%) translateY(-50%); }
+  100% { transform: rotate(360deg) translateX(-50%) translateY(-50%); }
+}
+
+/* Application specific cards */
+.affirmation-card {
+  padding: 32px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.competition-card {
+  padding: 24px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.competition-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 0 0 1px rgba(201, 168, 76, 0.5),
+    4px 4px 32px rgba(201, 168, 76, 0.15),
+    -4px -4px 32px rgba(45, 53, 97, 0.15);
+}
+
+.form-container {
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply — Minerva University</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/glassmorphism.css">
+</head>
+<body>
+    <nav class="navbar glass-nav">
+        <a href="../index.html" class="nav-left">
+            <svg class="logo-enso" viewBox="0 0 100 100">
+                <path d="M 50 10 A 40 40 0 1 1 10 50 A 40 40 0 0 1 45 12" />
+            </svg>
+            <span class="nav-title">Minerva University</span>
+        </a>
+    </nav>
+
+    <main class="container" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        <div class="chromatic-glass form-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span id="step-indicator" class="small-caps">Step 1 of 6</span>
+                <span id="draft-indicator" class="small-caps" style="opacity: 0; transition: opacity 0.3s; color: var(--primary-gold);">Draft saved</span>
+            </div>
+            
+            <div class="progress-container mb-4">
+                <div id="apply-progress" class="progress-bar"></div>
+            </div>
+
+            <form id="application-form">
+                <div class="form-step">
+                    <h2>The Basics</h2>
+                    <div class="form-group">
+                        <label>What's your name?</label>
+                        <input type="text" name="name" placeholder="Preferred name">
+                    </div>
+                </div>
+                
+                <div class="form-step" style="display: none;">
+                    <h2>Your Context</h2>
+                    <div class="form-group">
+                        <label>Where are you applying from?</label>
+                        <input type="text" name="location" placeholder="City, Country">
+                    </div>
+                </div>
+
+                <div class="form-step" style="display: none;">
+                    <h2>Your Drive</h2>
+                    <div class="form-group">
+                        <label>What's a problem you've tried to solve?</label>
+                        <textarea name="problem" placeholder="Tell us what you're actually working on..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-step" style="display: none;">
+                    <h2>Your Impact</h2>
+                    <div class="form-group">
+                        <label>What happened when you tried to solve it?</label>
+                        <textarea name="impact" placeholder="It's okay if you failed..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-step" style="display: none;">
+                    <h2>Your Reflection</h2>
+                    <div class="form-group">
+                        <label>What did you learn that surprised you?</label>
+                        <textarea name="learning" placeholder="What assumptions did you have to change?"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-step" style="display: none;">
+                    <h2>Final Review</h2>
+                    <p class="text-secondary mb-4">You're enough. And we mean that. Review your answers and submit when ready.</p>
+                </div>
+            </form>
+
+            <div class="btn-group" style="margin-top: 32px; justify-content: space-between;">
+                <button type="button" id="prev-btn" class="btn btn-secondary">Previous</button>
+                <button type="button" id="next-btn" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/haptics.js"></script>
+    <script src="../js/apply.js"></script>
+</body>
+</html>
