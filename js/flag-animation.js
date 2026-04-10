@@ -63,9 +63,9 @@ function createParticleBurst(x, y, colors, code = null) {
   document.body.appendChild(container);
 
   // Flag flies up
-  if (code && code !== 'world') {
+  if (code && typeof code === 'string' && code.length === 2) {
     const el = document.createElement('img');
-    el.src = `https://flagcdn.com/w80/${code}.png`;
+    el.src = `https://flagcdn.com/w80/${code.toLowerCase()}.png`;
     el.style.position = 'absolute';
     el.style.left = `${x}px`;
     el.style.top = `${y}px`;
@@ -73,10 +73,11 @@ function createParticleBurst(x, y, colors, code = null) {
     el.style.borderRadius = '4px';
     el.style.transform = 'translate(-50%, -50%)';
     el.style.transition = 'all 1.2s cubic-bezier(0.1, 0.8, 0.3, 1)';
+    el.onerror = () => el.remove(); // Hide if broken
     container.appendChild(el);
 
     requestAnimationFrame(() => {
-      el.style.transform = 'translate(-50%, -150px) scale(1.5)';
+      el.style.transform = 'translate(-50%, -60px) scale(1.2)'; // Reduced height
       el.style.opacity = '0';
     });
   }
@@ -97,7 +98,7 @@ function createParticleBurst(x, y, colors, code = null) {
     container.appendChild(p);
 
     const angle = Math.random() * Math.PI * 2;
-    const distance = Math.random() * 100 + 50;
+    const distance = Math.random() * 80 + 20; // Reduced scatter
     const tx = Math.cos(angle) * distance;
     const ty = Math.sin(angle) * distance;
 
