@@ -1,0 +1,80 @@
+/* css/freddy.css */
+
+/* Cursor ring */
+#freddy-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(201, 168, 76, 0.25);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  animation: cursorPulse 2s infinite alternate ease-in-out;
+  /* Use hardware acceleration for smooth 0-lag movement */
+  will-change: transform;
+}
+
+@keyframes cursorPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.06);
+    opacity: 1;
+  }
+}
+
+/* Freddy the cat */
+#freddy-cat {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 9999;
+  /* Initial offset so he sits next to cursor */
+  transform: translate(20px, 20px);
+  will-change: transform;
+  /* Transition for state changes */
+  transition: background-image 0.2s ease;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Freddy States */
+#freddy-cat.state-sitting {
+  background-image: url('../assets/svg/freddy-sitting.svg');
+}
+
+#freddy-cat.state-lounging {
+  background-image: url('../assets/svg/freddy-lounging.svg');
+  width: 60px; /* Wider when lounging */
+}
+
+#freddy-cat.state-running {
+  background-image: url('../assets/svg/freddy-running.svg');
+  width: 60px;
+}
+
+#freddy-cat.state-rizz {
+  background-image: url('../assets/svg/freddy-rizz.svg');
+}
+
+/* Hide default cursor only when custom cursor is actively handling it */
+body.custom-cursor-active {
+  cursor: none;
+}
+body.custom-cursor-active a, 
+body.custom-cursor-active button, 
+body.custom-cursor-active input, 
+body.custom-cursor-active textarea, 
+body.custom-cursor-active .competition-card {
+  cursor: none; /* Keep none, but we could add hover effects to ring */
+}

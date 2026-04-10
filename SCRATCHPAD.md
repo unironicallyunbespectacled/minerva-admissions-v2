@@ -6,13 +6,13 @@
 > This is the first thing Gemini reads — make it worth reading.
 
 **Status**: IN PROGRESS
-**Active milestone**: Phase 1 - Critical Fixes (Complete)
+**Active milestone**: Phase 4 - 100+ Country Flags Animated
 **Last session**: 2026-04-10
 
 **Next actions**:
-- [ ] Phase 2 - Realistic Freddy (spring physics and SVG poses)
-- [ ] Phase 3 - Glassmorphism + Chromatic Glass enhancements
 - [ ] Phase 4 - 100+ Country Flags Animated
+- [ ] Phase 5 - Escalating Haptics
+- [ ] Phase 6 - Device-Specific Themes
 
 **Open questions**:
 - None right now.

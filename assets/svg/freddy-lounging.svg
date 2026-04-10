@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <filter id="fur">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+  <g filter="url(#fur)">
+    <!-- Body (stretched) -->
+    <ellipse cx="50" cy="70" rx="40" ry="15" fill="#333" />
+    <!-- Head (resting) -->
+    <circle cx="25" cy="65" r="20" fill="#333" />
+    <!-- Ears -->
+    <polygon points="10,55 15,35 25,50" fill="#333" />
+    <polygon points="35,50 45,35 40,55" fill="#333" />
+    <!-- Tail (swaying) -->
+    <path d="M 85 70 Q 95 60 90 45" fill="none" stroke="#333" stroke-width="10" stroke-linecap="round" />
+    <!-- Eyes (half closed) -->
+    <path d="M 15 65 Q 20 60 25 65" fill="none" stroke="#000" stroke-width="2" />
+    <path d="M 30 65 Q 35 60 40 65" fill="none" stroke="#000" stroke-width="2" />
+    <!-- Paws -->
+    <ellipse cx="15" cy="82" rx="8" ry="4" fill="#444" />
+    <ellipse cx="35" cy="82" rx="8" ry="4" fill="#444" />
+    <ellipse cx="75" cy="80" rx="6" ry="4" fill="#444" />
+  </g>
+</svg>
