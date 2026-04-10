@@ -1,4 +1,5 @@
 // js/haptics.js
+// Phase 5: Escalating Haptics by page depth
 
 const Haptics = {
   depth: 0,
