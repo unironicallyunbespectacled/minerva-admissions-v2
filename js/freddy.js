@@ -142,20 +142,35 @@ class FreddyCursor {
       this.freddy.style.transform = `translate(${this.freddyPos.x}px, ${this.freddyPos.y}px)`;
       
       if (timeSinceLastMove > 300000) { // 5 mins (300,000 ms)
-        // 10% chance to show rizz face after 5 mins, checked roughly every frame once passed, 
-        // but let's just trigger it once if lounging and enough time passed.
         if (this.state !== 'rizz') {
           if (Math.random() < 0.01) {
             this.setState('rizz');
           } else {
-             // Default to lounging if not rizz
              this.setState('lounging');
           }
         }
       } else if (timeSinceLastMove > 10000) { // 10 secs
-        if (this.state !== 'rizz') {
+        if (this.state !== 'rizz' && this.state !== 'lounging') {
           this.setState('lounging');
+          if (window.AudioScape) AudioScape.thud();
         }
+      }
+    }
+    
+    // Z-axis awareness (glassmorphism effect)
+    // Check elements under Freddy's actual position (not cursor) periodically to save CPU
+    if (Math.random() > 0.8) {
+      // Temporarily hide Freddy to get element underneath
+      this.freddy.style.display = 'none';
+      const elUnder = document.elementFromPoint(this.freddyPos.x, this.freddyPos.y);
+      this.freddy.style.display = 'block';
+      
+      if (elUnder && (elUnder.closest('.glass') || elUnder.closest('.chromatic-glass') || elUnder.closest('.glass-nav'))) {
+        this.freddy.style.filter = 'blur(4px)';
+        this.freddy.style.opacity = '0.6';
+      } else {
+        this.freddy.style.filter = 'none';
+        this.freddy.style.opacity = '1';
       }
     }
     

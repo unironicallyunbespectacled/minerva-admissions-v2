@@ -8,6 +8,7 @@ const countryData = [
   { name: 'Croatia', code: 'hr', colors: ['#FF0000', '#FFFFFF', '#0000FF'] },
   { name: 'Serbia', code: 'rs', colors: ['#C6363C', '#0C4076', '#FFFFFF'] },
   { name: 'USA', code: 'us', colors: ['#B22234', '#FFFFFF', '#3C3B6E'] },
+  { name: 'Canada', code: 'ca', colors: ['#FF0000', '#FFFFFF'] },
   { name: 'UK', code: 'gb', colors: ['#C8102E', '#FFFFFF', '#012169'] },
   { name: 'Ghana', code: 'gh', colors: ['#CE1126', '#FCD116', '#006B3F', '#000000'] },
   { name: 'Rwanda', code: 'rw', colors: ['#00A1DE', '#FAD201', '#20603D'] },
@@ -149,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
       flagWrapper.addEventListener('click', (e) => {
         createParticleBurst(e.clientX, e.clientY, country.colors, country.code);
         if (window.Haptics) Haptics.heavy(); // Amped haptics for flag clicks
+        if (window.AudioScape) AudioScape.pop();
       });
 
       container.appendChild(flagWrapper);
@@ -157,6 +159,10 @@ document.addEventListener('DOMContentLoaded', () => {
         flagWrapper.style.opacity = '1';
         flagWrapper.style.transform = `translateY(0) scale(1) rotate(${rot}deg)`;
         
+        if (window.AudioScape && Math.random() > 0.8) {
+            AudioScape.chime(); // Occasional chime on land
+        }
+
         // Add idle motion after landing
         setTimeout(() => {
           flagWrapper.classList.add('idle-float');

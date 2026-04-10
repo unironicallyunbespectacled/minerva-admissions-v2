@@ -10,6 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let currentStep = 0;
   
+  // Toast container for Welcome Back
+  const toastContainer = document.createElement('div');
+  toastContainer.style.position = 'fixed';
+  toastContainer.style.bottom = '20px';
+  toastContainer.style.right = '20px';
+  toastContainer.style.zIndex = '9999';
+  document.body.appendChild(toastContainer);
+
+  function showToast(msg) {
+    const toast = document.createElement('div');
+    toast.className = 'chromatic-glass';
+    toast.style.padding = '12px 24px';
+    toast.style.marginBottom = '10px';
+    toast.style.color = '#FFF';
+    toast.style.fontSize = '0.9rem';
+    toast.style.animation = 'bloomEntry 0.3s ease-out';
+    toast.innerHTML = msg;
+    toastContainer.appendChild(toast);
+    setTimeout(() => toast.remove(), 4000);
+  }
+
   // Initialize
   if(steps.length > 0) {
     showStep(currentStep);
@@ -39,6 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
+      // Soft validation
+      const currentInput = steps[currentStep].querySelector('input, textarea');
+      if (currentInput && currentStep < steps.length - 1 && currentInput.value.trim().length < 5) {
+        showToast('<b>One second!</b> Please tell us a little more.');
+        if (window.Haptics) Haptics.light();
+        return;
+      }
+
       saveDraft();
       if (currentStep < steps.length - 1) {
         currentStep++;
@@ -86,10 +115,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (draft) {
       try {
         const data = JSON.parse(draft);
+        let hasData = false;
         Object.keys(data).forEach(key => {
           const input = form.elements[key];
-          if (input) input.value = data[key];
+          if (input && data[key].trim() !== '') {
+            input.value = data[key];
+            hasData = true;
+          }
         });
+        if (hasData) {
+          setTimeout(() => showToast('<b>Welcome back!</b> We loaded your saved application.'), 500);
+        }
       } catch(e) {}
     }
   }

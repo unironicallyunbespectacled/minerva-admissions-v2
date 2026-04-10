@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Minerva University Admissions</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/glassmorphism.css">
     <link rel="stylesheet" href="css/device-themes.css">
+    <link rel="preload" href="assets/svg/freddy-sitting.svg" as="image">
+    <link rel="preload" href="assets/svg/freddy-running.svg" as="image">
+    <link rel="preload" href="assets/svg/freddy-lounging.svg" as="image">
+    <link rel="preload" href="assets/svg/freddy-rizz.svg" as="image">
 </head>
 <body>
     <nav class="navbar glass-nav">
@@ -19,7 +23,7 @@
 
     <main class="container">
         <section class="hero text-center mt-4 mb-4">
-            <p class="disclaimer-text">Unofficial Web App Side Project — Not a substitute for the main application portal.</p>
+            <p class="disclaimer-text">Not a substitute for the main application portal.</p>
             <h1>Build Your Own Minerva Story</h1>
             <p class="subtitle" style="margin-left: auto; margin-right: auto;">There is no single Minerva student. You're here because you solved a real problem. Let's hear about it.</p>
             <div class="btn-group" style="justify-content: center;">
@@ -59,6 +63,7 @@
         </div>
     </footer>
 
+    <script src="js/audio.js"></script>
     <script src="js/haptics.js"></script>
     <script src="js/device-detect.js"></script>
     <script src="js/app.js"></script>

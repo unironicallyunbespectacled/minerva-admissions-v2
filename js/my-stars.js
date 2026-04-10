@@ -20,6 +20,27 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let currentStage = 0;
   
+  // Toast container for Welcome Back
+  const toastContainer = document.createElement('div');
+  toastContainer.style.position = 'fixed';
+  toastContainer.style.bottom = '20px';
+  toastContainer.style.right = '20px';
+  toastContainer.style.zIndex = '9999';
+  document.body.appendChild(toastContainer);
+
+  function showToast(msg) {
+    const toast = document.createElement('div');
+    toast.className = 'chromatic-glass';
+    toast.style.padding = '12px 24px';
+    toast.style.marginBottom = '10px';
+    toast.style.color = '#FFF';
+    toast.style.fontSize = '0.9rem';
+    toast.style.animation = 'bloomEntry 0.3s ease-out';
+    toast.innerHTML = msg;
+    toastContainer.appendChild(toast);
+    setTimeout(() => toast.remove(), 4000);
+  }
+  
   if (stages.length > 0) {
     showStage(currentStage);
     loadDraft();
@@ -49,6 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
+      // Soft validation
+      const currentTextarea = stages[currentStage].querySelector('textarea');
+      if (currentTextarea && currentTextarea.value.trim().length < 10) {
+        showToast('<b>Hey there!</b> Please share a bit more detail before moving on.');
+        if (window.Haptics) Haptics.light();
+        return;
+      }
+
       saveDraft();
       if (currentStage < stages.length - 1) {
         currentStage++;
@@ -94,10 +123,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (draft) {
       try {
         const data = JSON.parse(draft);
+        let hasData = false;
         Object.keys(data).forEach(key => {
           const input = form.elements[key];
-          if (input) input.value = data[key];
+          if (input && data[key].trim() !== '') {
+            input.value = data[key];
+            hasData = true;
+          }
         });
+        if (hasData) {
+          setTimeout(() => showToast('<b>Welcome back!</b> We saved your progress.'), 500);
+        }
       } catch(e) {}
     }
   }

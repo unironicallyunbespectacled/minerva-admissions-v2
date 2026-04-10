@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isRaining) return;
     isRaining = true;
     dustInterval = setInterval(createPixieDust, 200); // create a particle every 200ms
+    if (window.AudioScape) AudioScape.ambientWind(15);
   }
 
   function stopRaining() {
