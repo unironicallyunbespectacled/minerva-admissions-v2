@@ -14,6 +14,16 @@
   --radius-btn: 8px;
 }
 
+/* Mood Overrides */
+html[data-mood="focused"] {
+  --primary-gold: #2E86AB; /* Focused Blue */
+  --bg-dark: #05050A;
+}
+
+html[data-mood="magic"] {
+  --primary-gold: #FF9F43; /* Magic Orange */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,6 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  transition: background-color 0.5s ease;
 }
 
 a {
