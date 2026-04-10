@@ -1,116 +1,44 @@
 // js/vibe-check.js
 
 const competitions = [
-  // Academics & Science
-  { name: "International Mathematical Olympiad (IMO)", country: "International", desc: "The World Championship Mathematics Competition for High School students." },
-  { name: "International Physics Olympiad (IPhO)", country: "International", desc: "An annual physics competition for high school students." },
-  { name: "International Chemistry Olympiad (IChO)", country: "International", desc: "Annual academic competition for high school students in Chemistry." },
-  { name: "International Biology Olympiad (IBO)", country: "International", desc: "The premier high school biology student competition worldwide." },
-  { name: "International Informatics Olympiad (IOI)", country: "International", desc: "The most prestigious computer science competition for secondary school students." },
-  { name: "Science Bowl International", country: "International", desc: "A highly competitive science knowledge tournament." },
-  { name: "Intel International Science & Engineering Fair (ISEF)", country: "USA", desc: "The world's largest international pre-college science competition." },
-  { name: "FIRST Robotics International", country: "International", desc: "Global robotics competition emphasizing engineering and teamwork." },
-  { name: "National Science Challenge", country: "Kenya", desc: "Premier national science innovation challenge." },
-  { name: "STEM Innovation Fair", country: "Nigeria", desc: "Highlighting young innovators across Nigeria in STEM." },
-  { name: "Future Scientists Olympiad", country: "India", desc: "National Olympiad for promising young scientists." },
-  { name: "EuroScience Olympiad", country: "France", desc: "A major European science tournament." },
-  { name: "Asia-Pacific Informatics Olympiad", country: "Japan", desc: "Informatics Olympiad for the Asia-Pacific region." },
-  { name: "Iberoamerican Math Olympiad", country: "Brazil", desc: "Math Olympiad for Spanish and Portuguese speaking countries." },
-  { name: "Pan-African Math Olympiad", country: "South Africa", desc: "The premier mathematics competition in Africa." },
-  
-  // Business & Entrepreneurship
-  { name: "Enactus World Cup", country: "International", desc: "Global competition for student entrepreneurial action for others." },
-  { name: "Global Student Entrepreneur Awards (GSEA)", country: "International", desc: "Premier global competition for students who own and operate a business." },
-  { name: "UNCTAD Young Entrepreneurs", country: "International", desc: "United Nations competition for young sustainable entrepreneurs." },
-  { name: "Enact National Business Competition", country: "Nigeria", desc: "National business pitch and execution competition." },
-  { name: "Global Entrepreneurship Summit", country: "International", desc: "International summit and pitch competition." },
-  { name: "Diamond Challenge", country: "USA", desc: "Provides a unique opportunity for teens to learn about entrepreneurship." },
-  { name: "Hult Prize", country: "International", desc: "The world's largest student competition for social good." },
-  { name: "DECA International Career Development", country: "USA", desc: "Global competition for emerging leaders and entrepreneurs." },
-  { name: "Conrad Spirit of Innovation", country: "USA", desc: "Challenges students to design the future." },
-  { name: "SAGE Global", country: "International", desc: "Students for the Advancement of Global Entrepreneurship." },
-  { name: "Technovation Challenge", country: "International", desc: "Girls and families solving community problems with technology." },
-  { name: "Invento Business Pitch", country: "Colombia", desc: "National startup and pitch competition." },
-  { name: "Startup Weekend", country: "International", desc: "54-hour event where developers, designers, and marketers build startups." },
-  { name: "TiE Young Entrepreneurs", country: "India", desc: "Fostering future generation of entrepreneurs." },
-  { name: "Youth Business Fair", country: "Ghana", desc: "Showcase of young entrepreneurial talent." },
-  
-  // Arts & Humanities
-  { name: "Tribeca Film Festival Emerging Artists", country: "USA", desc: "Highlighting young and emerging filmmakers." },
-  { name: "Young Playwrights Festival", country: "International", desc: "Global competition for young theatrical writers." },
-  { name: "International Young Readers' Prize", country: "International", desc: "Celebrating global youth literacy and writing." },
-  { name: "Global Youth Forum", country: "International", desc: "Forum for youth perspectives on global humanities." },
-  { name: "World Scholar's Cup", country: "International", desc: "International team academic program." },
-  { name: "Scholastic Art & Writing", country: "USA", desc: "The nation's longest-running educational initiative for creative teens." },
-  { name: "John Locke Institute Essay", country: "UK", desc: "Prestigious global essay competition." },
-  { name: "Commonwealth Essay Competition", country: "UK", desc: "The world's oldest international schools' writing competition." },
-  { name: "Foyle Young Poets", country: "UK", desc: "The biggest poetry competition for 11-17 year olds in the world." },
-  { name: "Sony World Photography Youth", country: "International", desc: "Global photography competition for youth." },
-  { name: "Poetry Out Loud", country: "USA", desc: "National arts education program and poetry recitation competition." },
-  
-  // Social Impact
-  { name: "Bridge Alliance Social Impact", country: "International", desc: "Global challenge for civic engagement and social impact." },
-  { name: "Global Goals Studentpreneur", country: "International", desc: "Entrepreneurship targeting the UN Sustainable Development Goals." },
-  { name: "Youth for the UN SDGs", country: "International", desc: "Action challenge for youth to achieve the SDGs." },
-  { name: "Ashoka Youth Venture", country: "International", desc: "Empowering young people to be changemakers." },
-  { name: "Peace First Challenge", country: "International", desc: "Supporting young people to create peacemaking projects." },
-  { name: "Earth Prize", country: "International", desc: "Global environmental sustainability competition for students." },
-  { name: "ClimateScience Olympiad", country: "International", desc: "Student competition to find solutions to climate change." },
-  { name: "Stockholm Junior Water Prize", country: "Sweden", desc: "International water science competition." },
-  { name: "Prudential Spirit of Community", country: "USA", desc: "Recognizing students for outstanding volunteer service." },
-  { name: "Global Social Leaders", country: "UK", desc: "Movement of socially conscious young leaders." },
-  
-  // Sports & Athletics
-  { name: "Youth Olympic Games", country: "International", desc: "Elite international multi-sport event for athletes aged 15 to 18." },
-  { name: "IAAF World Junior Championships", country: "International", desc: "World championships for junior track and field athletes." },
-  { name: "International Debate Association", country: "International", desc: "The premier global debating championship." },
-  { name: "World Model UN", country: "International", desc: "The most internationally diverse college-level Model UN conference." },
-  { name: "Harvard MUN", country: "USA", desc: "High school Model UN conference hosted by Harvard." },
-  { name: "Berkeley MUN", country: "USA", desc: "Premier Model UN conference on the West Coast." },
-  { name: "THIMUN", country: "Netherlands", desc: "The Hague International Model United Nations." },
-  { name: "World Schools Debating", country: "International", desc: "Global debating competition for high school students." },
-  { name: "Asian Schools Debating", country: "Thailand", desc: "Premier debating tournament in Asia." }
+  // AFRICA: The Ghost Gauntlets
+  { name: "Riversman Competition (Nigeria)", country: "Nigeria", desc: "A grueling endurance and knowledge quest in the Niger Delta. Barely documented online, it tests the absolute physical and mental limits of secondary students.", link: "#" },
+  { name: "NCS WhizKids IT Competition", country: "Nigeria", desc: "The Nigeria Computer Society's high-pressure gauntlet. Students are grilled on advanced computing theory and logic in community halls.", link: "https://ncs.org.ng" },
+  { name: "La-Vogue National Math Championship", country: "Nigeria", desc: "A historic 'mind-war' across all 36 states. Forms are distributed through physical LGA offices; the final rounds are legendary for their difficulty.", link: "https://la-vogueschools.org" },
+  { name: "InterswitchSPAK 8.0", country: "Nigeria", desc: "Nigeria's biggest STEM filter. Thousands take a CBT exam; only 81 survive to reach the televised 'blood and sweat' rounds.", link: "https://www.interswitchspak.com" },
+  { name: "Cowbellpedia Qualifying Exam", country: "Nigeria", desc: "The 'silent killer'. Over 50,000 students sit for a single-day paper exam. Only 108 survive to see the TV cameras.", link: "https://www.cowbellpedia.ng" },
+  { name: "Mbaise Senior Secondary Math", country: "Nigeria", desc: "A hyper-local regional contest in Imo State aimed at discovering elite 'hidden' talent in rural areas.", link: "#" },
+  { name: "African Spelling Bee (ASB)", country: "International", desc: "Champions from 20+ countries tested on words from 21 African languages. The ultimate continental linguistic siege.", link: "https://africanspellingbee.com" },
+  { name: "Ethiopian Science Fair (STEM Synergy)", country: "Ethiopia", desc: "Students must build practical, working engineering solutions to national infrastructure challenges. Theory is not enough.", link: "#" },
+  { name: "WorldSkills Africa", country: "International", desc: "The 'Skills Olympics'. A multi-day physical gauntlet in fields like bricklaying and CNC milling for vocational students.", link: "https://worldskillsafrica.org" },
+
+  // ASIA & CIS: The Pressure Cookers
+  { name: "National Math Olympiad (Kyrgyzstan)", country: "Kyrgyzstan", desc: "The IV Stage is a 3-day offline marathon in Bishkek. No web presence; follow @imo_kg on Telegram for the only crumbs of info.", link: "#" },
+  { name: "Altyn Tuyun Engineering Week", country: "Kyrgyzstan", desc: "Students build machines from scrap metal and logic controllers. If the machine fails the physical stress test, you are out.", link: "#" },
+  { name: "AUCA Mathematical Contest", country: "Kyrgyzstan", desc: "Held on-campus at the American University of Central Asia. Winners earn life-changing, rare scholarships.", link: "https://auca.kg" },
+  { name: "International Zhautykov Olympiad (IZhO)", country: "Kazakhstan", desc: "A team-based gauntlet in Math, Physics, and CS. Problems are designed to test elite-level cooperation.", link: "https://izho.kz" },
+  { name: "JEE Advanced", country: "India", desc: "The ultimate gateway. Only the top 1% of millions qualify for the IITs. One of the most competitive tests on the planet.", link: "https://jeeadv.ac.in" },
+  { name: "NSTSE (Science Talent Search)", country: "India", desc: "Widely regarded as India's most difficult secondary exam, overshadowing even the JEE in pure conceptual difficulty.", link: "https://www.unifiedcouncil.com" },
+  { name: "Vietnam Applied Math Competition", country: "Vietnam", desc: "A rigorous regional filter in Da Nang. Training centers in Hanoi are known for 14-hour study days leading up to this.", link: "#" },
+  { name: "Coca-Cola STAGE:0 eSPORTS", country: "Japan", desc: "Japan's largest high-school battle. A televised peak of teen concentration and strategic endurance.", link: "https://stage0.jp" },
+
+  // AMERICAS & EUROPE: The Elite Research Tiers
+  { name: "OBMEP PIC (Junior Research)", country: "Brazil", desc: "The elite tier of the Brazilian Math Olympiad. Winners travel long distances for university-level research cycles on weekends.", link: "http://www.obmep.org.br" },
+  { name: "Porsche Endurance Series Junior", country: "Brazil", desc: "A brutal physical and financial grind. Only those who survive the high-risk development path reach the Goiânia rounds.", link: "#" },
+  { name: "Regeneron Science Talent Search", country: "USA", desc: "The 'Junior Nobel Prize'. Requires years of original research. Only 40 finalists reach the peak in D.C.", link: "https://www.societyforscience.org/regeneron-sts" },
+  { name: "Romanian Master of Mathematics", country: "Romania", desc: "Often considered harder than the IMO. An invitation-only best-of-the-best scenario for top-performing countries.", link: "https://rmm.lghf.ro" },
+  { name: "All Souls Prize Fellowship", country: "UK", desc: "Though postgraduate, its secondary-level filters set the global bar for 'blood and tears' testing. Pass rate: 1.33%.", link: "#" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('competitions-list');
   const searchInput = document.getElementById('vibe-search');
 
-  // Modal logic for Easter Egg expansion
-  const modal = document.createElement('div');
-  modal.className = 'chromatic-glass';
-  modal.style.position = 'fixed';
-  modal.style.top = '50%';
-  modal.style.left = '50%';
-  modal.style.transform = 'translate(-50%, -50%) scale(0.9)';
-  modal.style.opacity = '0';
-  modal.style.pointerEvents = 'none';
-  modal.style.zIndex = '10000';
-  modal.style.padding = '32px';
-  modal.style.maxWidth = '500px';
-  modal.style.width = '90%';
-  modal.style.textAlign = 'center';
-  modal.style.transition = 'all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)';
-  document.body.appendChild(modal);
-
-  function showModal(comp) {
-    modal.innerHTML = `
-      <h2 style="color: var(--primary-gold); margin-bottom: 12px;">${comp.name}</h2>
-      <p class="small-caps" style="margin-bottom: 16px;">${comp.country}</p>
-      <p style="font-size: 1.1rem;">${comp.desc}</p>
-      <button class="btn btn-secondary mt-4" onclick="this.parentElement.style.opacity='0'; this.parentElement.style.pointerEvents='none'; this.parentElement.style.transform='translate(-50%, -50%) scale(0.9)';">Close</button>
-    `;
-    modal.style.opacity = '1';
-    modal.style.pointerEvents = 'all';
-    modal.style.transform = 'translate(-50%, -50%) scale(1)';
-  }
-
   function renderCompetitions(filterText = '') {
     if (!container) return;
     container.innerHTML = '';
     
     const lowerFilter = filterText.toLowerCase();
-    
     const filtered = competitions.filter(c => 
       c.name.toLowerCase().includes(lowerFilter) || 
       c.country.toLowerCase().includes(lowerFilter)
@@ -119,34 +47,47 @@ document.addEventListener('DOMContentLoaded', () => {
     filtered.forEach(comp => {
       const card = document.createElement('div');
       card.className = 'chromatic-glass competition-card';
+      // Added data attribute for targeting
       card.innerHTML = `
-        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${comp.name}</h3>
-        <p class="small-caps" style="color: var(--primary-gold);">${comp.country}</p>
+        <div class="card-main-info">
+          <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${comp.name}</h3>
+          <p class="small-caps" style="color: var(--primary-gold);">${comp.country}</p>
+        </div>
+        <div class="card-extra-info" style="display: none; margin-top: 16px; border-top: 1px solid var(--glass-border); padding-top: 16px;">
+          <p style="font-size: 0.95rem; color: #DDD; line-height: 1.4;">${comp.desc}</p>
+          ${comp.link !== '#' ? `<a href="${comp.link}" target="_blank" class="btn btn-secondary" style="margin-top: 12px; font-size: 0.8rem; padding: 6px 12px;">Visit Official Site</a>` : '<p class="small-caps" style="margin-top:12px; opacity:0.6;">No Official Website Available</p>'}
+        </div>
       `;
       
       card.addEventListener('click', (e) => {
-        if (window.createParticleBurst) {
-          // Simple logic to find colors based on country mapping
-          const colors = comp.country === 'Nigeria' ? ['#008751', '#FFFFFF'] :
-                         comp.country === 'USA' ? ['#B22234', '#FFFFFF', '#3C3B6E'] :
-                         comp.country === 'UK' ? ['#C8102E', '#FFFFFF', '#012169'] :
-                         comp.country === 'India' ? ['#FF9933', '#FFFFFF', '#138808'] :
-                         comp.country === 'Kenya' ? ['#000000', '#BB0000', '#006600', '#FFFFFF'] :
-                         comp.country === 'Brazil' ? ['#009B3A', '#FEDF00', '#002776'] :
-                         ['#C9A84C', '#2E86AB']; // International default
-          
-          let codeMap = {
-            'Nigeria': 'ng', 'USA': 'us', 'UK': 'gb', 'India': 'in', 
-            'Kenya': 'ke', 'France': 'fr', 'South Africa': 'za',
-            'Brazil': 'br', 'Japan': 'jp', 'Colombia': 'co', 'Ghana': 'gh',
-            'Sweden': 'se', 'Thailand': 'th', 'Netherlands': 'nl'
-          };
-          let code = codeMap[comp.country] || null;
+        // Toggle expansion logic
+        const extra = card.querySelector('.card-extra-info');
+        const isExpanding = extra.style.display === 'none';
+        
+        // Close all others first for 'accordion' feel
+        document.querySelectorAll('.card-extra-info').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.competition-card').forEach(el => el.classList.remove('expanded'));
 
-          createParticleBurst(e.clientX, e.clientY, colors, code);
+        if (isExpanding) {
+          extra.style.display = 'block';
+          card.classList.add('expanded');
+          if (window.AudioScape) AudioScape.pop();
+          if (window.Haptics) Haptics.medium();
+          
+          // Particle burst logic
+          if (window.createParticleBurst) {
+            let codeMap = {
+              'Nigeria': 'ng', 'USA': 'us', 'UK': 'gb', 'India': 'in', 
+              'Kenya': 'ke', 'France': 'fr', 'South Africa': 'za',
+              'Brazil': 'br', 'Japan': 'jp', 'Colombia': 'co', 'Ghana': 'gh',
+              'Sweden': 'se', 'Thailand': 'th', 'Netherlands': 'nl',
+              'Kyrgyzstan': 'kg', 'Kazakhstan': 'kz', 'Vietnam': 'vn',
+              'Ethiopia': 'et', 'Romania': 'ro'
+            };
+            let code = codeMap[comp.country] || null;
+            createParticleBurst(e.clientX, e.clientY, ['#C9A84C', '#FFF'], code);
+          }
         }
-        if (window.AudioScape) AudioScape.chime();
-        showModal(comp);
       });
       
       container.appendChild(card);
@@ -159,6 +100,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initial render
   renderCompetitions();
 });
