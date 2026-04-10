@@ -63,7 +63,8 @@ const Haptics = {
   },
 
   heavy() {
-    this.vibrate([60, 30, 60, 20, 60]);
+    // Seriously amped up rhythmic pulse
+    this.vibrate([100, 40, 100, 40, 100, 40, 100]);
   },
 
   success() {
