@@ -33,7 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${comp.name}</h3>
         <p class="small-caps" style="color: var(--primary-gold);">${comp.country}</p>
       `;
-      // Easter egg logic to be added in Phase 8
+      
+      card.addEventListener('click', (e) => {
+        if (window.createParticleBurst) {
+          // Simple logic to find colors
+          const colors = comp.country === 'Nigeria' ? ['#008751', '#FFFFFF'] :
+                         comp.country === 'USA' ? ['#B22234', '#FFFFFF', '#3C3B6E'] :
+                         ['#C9A84C', '#2E86AB'];
+          createParticleBurst(e.clientX, e.clientY, colors, '🌟');
+        }
+      });
+      
       container.appendChild(card);
     });
   }
