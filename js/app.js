@@ -16,6 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const affirmationCard = document.querySelector('.affirmation-card');
   if (affirmationCard) {
     const randomQuote = affirmations[Math.floor(Math.random() * affirmations.length)];
-    affirmationCard.textContent = `"${randomQuote}"`;
+    affirmationCard.innerHTML = `"${randomQuote}"`;
   }
 });
