@@ -77,6 +77,23 @@ a {
   color: var(--primary-gold);
 }
 
+.mood-toggle {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.mood-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+}
+
 /* Typography */
 h1, h2, h3, h4 {
   font-weight: 700;
@@ -100,6 +117,14 @@ h2 {
   margin-bottom: 32px;
 }
 
+.disclaimer-text {
+  font-size: 0.85rem;
+  color: var(--primary-gold);
+  opacity: 0.8;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
 .small-caps {
   font-size: 12px;
   text-transform: uppercase;
@@ -113,6 +138,24 @@ h2 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* Bloom Entry Animation */
+body {
+  animation: bloomEntry 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes bloomEntry {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
 }
 
 section {

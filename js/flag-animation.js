@@ -22,7 +22,14 @@ const countryData = [
   { name: 'Brazil', code: 'br', colors: ['#009B3A', '#FEDF00', '#002776', '#FFFFFF'] },
   { name: 'France', code: 'fr', colors: ['#002395', '#FFFFFF', '#ED2939'] },
   { name: 'Germany', code: 'de', colors: ['#000000', '#FF0000', '#FFCC00'] },
-  { name: 'Argentina', code: 'ar', colors: ['#74ACDF', '#FFFFFF', '#F6B40E'] }
+  { name: 'Argentina', code: 'ar', colors: ['#74ACDF', '#FFFFFF', '#F6B40E'] },
+  { name: 'Austria', code: 'at', colors: ['#ED2939', '#FFFFFF'] },
+  { name: 'Kyrgyzstan', code: 'kg', colors: ['#E31C23', '#FFF200'] },
+  { name: 'Uzbekistan', code: 'uz', colors: ['#0099B5', '#CE1126', '#1EB53A', '#FFFFFF'] },
+  { name: 'Ireland', code: 'ie', colors: ['#169B62', '#FFFFFF', '#FF883E'] },
+  { name: 'Turkmenistan', code: 'tm', colors: ['#009736', '#FFFFFF', '#D22630'] },
+  { name: 'El Salvador', code: 'sv', colors: ['#0047AB', '#FFFFFF'] },
+  { name: 'Sri Lanka', code: 'lk', colors: ['#FFBE29', '#8D153A', '#EB7400', '#00534E'] }
 ];
 
 // Shuffle helper

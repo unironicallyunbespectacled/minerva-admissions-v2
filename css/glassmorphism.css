@@ -95,3 +95,31 @@
   max-width: 600px;
   margin: 40px auto;
 }
+
+/* Magic Buttons */
+.btn-primary, .btn-secondary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after, .btn-secondary::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.1) 90deg,
+    rgba(255, 255, 255, 0.2) 180deg,
+    transparent 270deg
+  );
+  animation: chromaticShimmer 6s linear infinite;
+  pointer-events: none;
+}
+
+.btn-primary {
+  box-shadow: 0 0 15px rgba(201, 168, 76, 0.3);
+}

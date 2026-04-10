@@ -24,4 +24,68 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomQuote = affirmations[Math.floor(Math.random() * affirmations.length)];
     affirmationCard.innerHTML = `"${randomQuote}"`;
   }
+
+  // Pixie Dust Idle Effect
+  let idleTimer;
+  let dustInterval;
+  let isRaining = false;
+
+  function createPixieDust() {
+    const dust = document.createElement('div');
+    dust.style.position = 'fixed';
+    dust.style.top = '-10px';
+    dust.style.left = `${Math.random() * 100}vw`;
+    dust.style.width = `${Math.random() * 3 + 1}px`;
+    dust.style.height = dust.style.width;
+    dust.style.backgroundColor = '#C9A84C'; // Primary Gold
+    dust.style.borderRadius = '50%';
+    dust.style.opacity = Math.random() * 0.5 + 0.2;
+    dust.style.pointerEvents = 'none';
+    dust.style.zIndex = '9997'; // Just behind cursor ring
+    dust.style.boxShadow = '0 0 4px #C9A84C';
+    
+    // Animation
+    const duration = Math.random() * 3 + 2; // 2-5 seconds
+    dust.style.transition = `transform ${duration}s linear, opacity ${duration}s ease-in-out`;
+    
+    document.body.appendChild(dust);
+    
+    // Trigger fall
+    requestAnimationFrame(() => {
+      dust.style.transform = `translateY(${window.innerHeight + 20}px) translateX(${(Math.random() - 0.5) * 50}px)`;
+      dust.style.opacity = '0';
+    });
+
+    setTimeout(() => {
+      dust.remove();
+    }, duration * 1000);
+  }
+
+  function startRaining() {
+    if (isRaining) return;
+    isRaining = true;
+    dustInterval = setInterval(createPixieDust, 200); // create a particle every 200ms
+  }
+
+  function stopRaining() {
+    if (!isRaining) return;
+    isRaining = false;
+    clearInterval(dustInterval);
+  }
+
+  function resetIdleTimer() {
+    stopRaining();
+    clearTimeout(idleTimer);
+    // Start raining after 15 seconds of inactivity
+    idleTimer = setTimeout(startRaining, 15000);
+  }
+
+  // Bind idle events
+  ['mousemove', 'mousedown', 'keypress', 'touchstart', 'scroll'].forEach(evt => {
+    document.addEventListener(evt, resetIdleTimer, { passive: true });
+  });
+
+  // Init
+  resetIdleTimer();
 });
+
