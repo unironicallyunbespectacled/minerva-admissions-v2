@@ -1,40 +1,39 @@
 // js/flag-animation.js
 
 const countryData = [
-  { name: "Nigeria", emoji: "🇳🇬", colors: ["#008751", "#FFFFFF"] },
-  { name: "Kazakhstan", emoji: "🇰🇿", colors: ["#00AFCA", "#FEC50C"] },
-  { name: "China", emoji: "🇨🇳", colors: ["#EE1C25", "#FFFF00"] },
-  { name: "Japan", emoji: "🇯🇵", colors: ["#FFFFFF", "#BC002D"] },
-  { name: "Croatia", emoji: "🇭🇷", colors: ["#FF0000", "#FFFFFF", "#0000FF"] },
-  { name: "Serbia", emoji: "🇷🇸", colors: ["#C6363C", "#0C4076", "#FFFFFF"] },
-  { name: "USA", emoji: "🇺🇸", colors: ["#B22234", "#FFFFFF", "#3C3B6E"] },
-  { name: "UK", emoji: "🇬🇧", colors: ["#C8102E", "#FFFFFF", "#012169"] },
-  { name: "Ghana", emoji: "🇬🇭", colors: ["#CE1126", "#FCD116", "#006B3F", "#000000"] },
-  { name: "Rwanda", emoji: "🇷🇼", colors: ["#00A1DE", "#FAD201", "#20603D"] },
-  { name: "Morocco", emoji: "🇲🇦", colors: ["#C1272D", "#006233"] },
-  { name: "Egypt", emoji: "🇪🇬", colors: ["#CE1126", "#FFFFFF", "#000000", "#C09300"] },
-  { name: "South Africa", emoji: "🇿🇦", colors: ["#E03C31", "#FFFFFF", "#007749", "#FFB81C", "#001489", "#000000"] },
-  { name: "Mexico", emoji: "🇲🇽", colors: ["#006847", "#FFFFFF", "#CE1126"] },
-  { name: "Colombia", emoji: "🇨🇴", colors: ["#FCD116", "#003893", "#CE1126"] },
-  { name: "India", emoji: "🇮🇳", colors: ["#FF9933", "#FFFFFF", "#138808", "#000080"] },
-  { name: "Kenya", emoji: "🇰🇪", colors: ["#000000", "#BB0000", "#006600", "#FFFFFF"] },
-  { name: "Ethiopia", emoji: "🇪🇹", colors: ["#078930", "#FCDD09", "#DA121A", "#0F47AF"] },
-  { name: "Brazil", emoji: "🇧🇷", colors: ["#009B3A", "#FEDF00", "#002776", "#FFFFFF"] },
-  { name: "France", emoji: "🇫🇷", colors: ["#002395", "#FFFFFF", "#ED2939"] },
-  { name: "Germany", emoji: "🇩🇪", colors: ["#000000", "#FF0000", "#FFCC00"] },
-  { name: "International", emoji: "🌐", colors: ["#C9A84C", "#2E86AB"] }
+  { name: 'Nigeria', code: 'ng', colors: ['#008751', '#FFFFFF'] },
+  { name: 'Kazakhstan', code: 'kz', colors: ['#00AFCA', '#FEC50C'] },
+  { name: 'China', code: 'cn', colors: ['#EE1C25', '#FFFF00'] },
+  { name: 'Japan', code: 'jp', colors: ['#FFFFFF', '#BC002D'] },
+  { name: 'Croatia', code: 'hr', colors: ['#FF0000', '#FFFFFF', '#0000FF'] },
+  { name: 'Serbia', code: 'rs', colors: ['#C6363C', '#0C4076', '#FFFFFF'] },
+  { name: 'USA', code: 'us', colors: ['#B22234', '#FFFFFF', '#3C3B6E'] },
+  { name: 'UK', code: 'gb', colors: ['#C8102E', '#FFFFFF', '#012169'] },
+  { name: 'Ghana', code: 'gh', colors: ['#CE1126', '#FCD116', '#006B3F', '#000000'] },
+  { name: 'Rwanda', code: 'rw', colors: ['#00A1DE', '#FAD201', '#20603D'] },
+  { name: 'Morocco', code: 'ma', colors: ['#C1272D', '#006233'] },
+  { name: 'Egypt', code: 'eg', colors: ['#CE1126', '#FFFFFF', '#000000', '#C09300'] },
+  { name: 'South Africa', code: 'za', colors: ['#E03C31', '#FFFFFF', '#007749', '#FFB81C', '#001489', '#000000'] },
+  { name: 'Mexico', code: 'mx', colors: ['#006847', '#FFFFFF', '#CE1126'] },
+  { name: 'Colombia', code: 'co', colors: ['#FCD116', '#003893', '#CE1126'] },
+  { name: 'India', code: 'in', colors: ['#FF9933', '#FFFFFF', '#138808', '#000080'] },
+  { name: 'Kenya', code: 'ke', colors: ['#000000', '#BB0000', '#006600', '#FFFFFF'] },
+  { name: 'Ethiopia', code: 'et', colors: ['#078930', '#FCDD09', '#DA121A', '#0F47AF'] },
+  { name: 'Brazil', code: 'br', colors: ['#009B3A', '#FEDF00', '#002776', '#FFFFFF'] },
+  { name: 'France', code: 'fr', colors: ['#002395', '#FFFFFF', '#ED2939'] },
+  { name: 'Germany', code: 'de', colors: ['#000000', '#FF0000', '#FFCC00'] },
+  { name: 'Argentina', code: 'ar', colors: ['#74ACDF', '#FFFFFF', '#F6B40E'] }
 ];
 
-// Fallback for remaining countries (random generation for simplicity in prototype, though we could list 100)
-for(let i=0; i<80; i++) {
-  countryData.push({
-    name: "Country " + i,
-    emoji: ["🇲🇾","🇳🇵","🇲🇳","🇰🇷","🇧🇩","🇳🇱","🇧🇪","🇸🇪","🇳🇴","🇩🇰","🇫🇮","🇨🇭","🇦🇹","🇮🇪","🇦🇺","🇳🇿","🇹🇭","🇮🇩","🇵🇪","🇦🇷","🇪🇨","🇻🇪","🇹🇷","🇦🇪","🇶🇦","🇰🇼","🇱🇧","🇯🇴","🇮🇶"][i % 29],
-    colors: ["#C9A84C", "#FFFFFF"]
-  });
-}
+// Map codes to more countries to reach 100+
+const extraCodes = ['ca', 'es', 'pt', 'it', 'gr', 'ph', 'id', 'th', 'vn', 'tr', 'ae', 'pl', 'ua', 'nl', 'be', 'se', 'no', 'dk', 'fi', 'ch', 'at', 'ie', 'au', 'nz', 'pe', 'cl', 'ec', 've', 'pk', 'my', 'kr', 'sg', 'tw', 'ru', 'pk', 'il', 'sa', 'qa', 'kw', 'lb', 'jo', 'iq', 'dz', 'tn', 'sn', 'tz', 'mg', 'cm', 'ci', 'tg', 'bj', 'ne', 'td', 'mz', 'ao', 'dj', 'gm', 'gn', 'bf', 'kh', 'mm', 'la', 'np', 'mn', 'bd', 'lt', 'lv', 'ee', 'sk', 'cz', 'hu', 'ro', 'bg', 'hr', 'si'];
+extraCodes.forEach(code => {
+  if (countryData.length < 110) {
+    countryData.push({ name: code.toUpperCase(), code: code, colors: ['#C9A84C', '#FFFFFF'] });
+  }
+});
 
-function createParticleBurst(x, y, colors, emoji = null) {
+function createParticleBurst(x, y, colors, code = null) {
   const container = document.createElement('div');
   container.style.position = 'fixed';
   container.style.left = 0;
@@ -43,19 +42,19 @@ function createParticleBurst(x, y, colors, emoji = null) {
   container.style.zIndex = 9999;
   document.body.appendChild(container);
 
-  // Emoji flies up
-  if (emoji) {
-    const el = document.createElement('div');
-    el.textContent = emoji;
+  // Flag flies up
+  if (code && code !== 'world') {
+    const el = document.createElement('img');
+    el.src = `https://flagcdn.com/w80/${code}.png`;
     el.style.position = 'absolute';
     el.style.left = `${x}px`;
     el.style.top = `${y}px`;
-    el.style.fontSize = '2rem';
+    el.style.width = '40px';
+    el.style.borderRadius = '4px';
     el.style.transform = 'translate(-50%, -50%)';
     el.style.transition = 'all 1.2s cubic-bezier(0.1, 0.8, 0.3, 1)';
     container.appendChild(el);
 
-    // Trigger animation
     requestAnimationFrame(() => {
       el.style.transform = 'translate(-50%, -150px) scale(1.5)';
       el.style.opacity = '0';
@@ -99,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   container.innerHTML = '';
   
-  // Toss animation
   let batchIndex = 0;
   const batchSize = 4;
   
@@ -109,39 +107,45 @@ document.addEventListener('DOMContentLoaded', () => {
       if (idx >= countryData.length) return;
       
       const country = countryData[idx];
-      const flagEl = document.createElement('span');
-      flagEl.className = 'flag-emoji';
-      flagEl.textContent = country.emoji;
-      flagEl.style.fontSize = '2rem';
-      flagEl.style.cursor = 'pointer';
-      flagEl.style.display = 'inline-block';
-      flagEl.style.opacity = '0';
-      flagEl.style.transform = `translateY(50px) scale(0.5) rotate(${(Math.random() - 0.5) * 60}deg)`;
-      flagEl.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      const flagWrapper = document.createElement('div');
+      flagWrapper.className = 'flag-emoji';
+      flagWrapper.style.cursor = 'pointer';
+      flagWrapper.style.display = 'inline-block';
+      flagWrapper.style.opacity = '0';
+      flagWrapper.style.transform = `translateY(50px) scale(0.5) rotate(${(Math.random() - 0.5) * 60}deg)`;
+      flagWrapper.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
       
-      flagEl.addEventListener('click', (e) => {
-        createParticleBurst(e.clientX, e.clientY, country.colors, country.emoji);
+      const flagImg = document.createElement('img');
+      flagImg.src = `https://flagcdn.com/w80/${country.code}.png`;
+      flagImg.alt = country.name;
+      flagImg.style.width = '48px';
+      flagImg.style.height = 'auto';
+      flagImg.style.borderRadius = '4px';
+      flagImg.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+      
+      flagWrapper.appendChild(flagImg);
+      
+      flagWrapper.addEventListener('click', (e) => {
+        createParticleBurst(e.clientX, e.clientY, country.colors, country.code);
         if (window.Haptics) Haptics.light();
       });
 
-      container.appendChild(flagEl);
+      container.appendChild(flagWrapper);
       
-      // Trigger animation
       setTimeout(() => {
-        flagEl.style.opacity = '1';
-        flagEl.style.transform = `translateY(0) scale(1) rotate(${(Math.random() - 0.5) * 40}deg)`;
+        flagWrapper.style.opacity = '1';
+        flagWrapper.style.transform = `translateY(0) scale(1) rotate(${(Math.random() - 0.5) * 40}deg)`;
       }, 50);
     }
     
     batchIndex++;
     if (batchIndex * batchSize < countryData.length) {
-      setTimeout(tossNextBatch, 50); // 2 seconds total roughly
+      setTimeout(tossNextBatch, 50);
     }
   }
 
   tossNextBatch();
   
-  // Global click burst
   document.addEventListener('click', (e) => {
     if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A' && !e.target.closest('.flag-emoji') && !e.target.closest('.competition-card')) {
       createParticleBurst(e.clientX, e.clientY, ['#C9A84C', '#FFFFFF']);
