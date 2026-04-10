@@ -77,7 +77,7 @@ function createParticleBurst(x, y, colors, code = null) {
     container.appendChild(el);
 
     requestAnimationFrame(() => {
-      el.style.transform = 'translate(-50%, -60px) scale(1.2)'; // Reduced height
+      el.style.transform = 'translate(-50%, -20px) scale(1.1)'; // Very low height
       el.style.opacity = '0';
     });
   }
@@ -89,16 +89,16 @@ function createParticleBurst(x, y, colors, code = null) {
     p.style.position = 'absolute';
     p.style.left = `${x}px`;
     p.style.top = `${y}px`;
-    p.style.width = `${Math.random() * 6 + 4}px`;
+    p.style.width = `${Math.random() * 4 + 2}px`;
     p.style.height = p.style.width;
     p.style.backgroundColor = color;
     p.style.borderRadius = '50%';
     p.style.transform = 'translate(-50%, -50%)';
-    p.style.transition = 'all 1.2s cubic-bezier(0.1, 0.8, 0.3, 1)';
+    p.style.transition = 'all 0.8s cubic-bezier(0.1, 0.8, 0.3, 1)';
     container.appendChild(p);
 
     const angle = Math.random() * Math.PI * 2;
-    const distance = Math.random() * 80 + 20; // Reduced scatter
+    const distance = Math.random() * 40 + 10; // Very tight scatter
     const tx = Math.cos(angle) * distance;
     const ty = Math.sin(angle) * distance;
 
