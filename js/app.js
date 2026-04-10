@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const affirmations = [
     "The most interesting thing about you is not on your résumé.",
     "You don't have to be perfect to belong here.",
-    "We're looking for what you've *done*, not what you've *won*.",
+    "We're looking for what you've <b>done</b>, not what you've <b>won</b>.",
     "Your voice matters. We want to hear it.",
     "Minerva is for people who ask questions.",
     "You're enough. And we mean that."
